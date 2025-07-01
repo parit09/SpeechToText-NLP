@@ -4,14 +4,28 @@ from flask_cors import CORS
 from utils.utils import decodeSound
 from speechToText import speech2Text
 import nltk
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('brown')
-nltk.download('wordnet')
-nltk.download('movie_reviews')
-nltk.download('stopwords')
-nltk.download('vader_lexicon')
-nltk.download('omw-1.4')
+
+def download_nltk_corpora():
+    try:
+        nltk.data.find('tokenizers/punkt')
+        nltk.data.find('taggers/averaged_perceptron_tagger')
+        nltk.data.find('corpora/brown')
+        nltk.data.find('corpora/wordnet')
+        nltk.data.find('corpora/movie_reviews')
+        nltk.data.find('corpora/stopwords')
+        nltk.data.find('sentiment/vader_lexicon')
+        nltk.data.find('corpora/omw-1.4')
+    except LookupError:
+        nltk.download('punkt')
+        nltk.download('averaged_perceptron_tagger')
+        nltk.download('brown')
+        nltk.download('wordnet')
+        nltk.download('movie_reviews')
+        nltk.download('stopwords')
+        nltk.download('vader_lexicon')
+        nltk.download('omw-1.4')
+
+download_nltk_corpora()
 
 app = Flask(__name__)
 CORS(app)
