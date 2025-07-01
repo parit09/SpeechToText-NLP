@@ -12,8 +12,6 @@ nltk.download('movie_reviews')
 nltk.download('stopwords')
 nltk.download('vader_lexicon')
 nltk.download('omw-1.4')
-from textblob import download_corpora
-download_corpora()
 
 app = Flask(__name__)
 CORS(app)
