@@ -3,6 +3,13 @@ import os
 from flask_cors import CORS
 from utils.utils import decodeSound
 from speechToText import speech2Text
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('brown')
+nltk.download('wordnet')
+nltk.download('movie_reviews')
+nltk.download('stopwords')
 
 app = Flask(__name__)
 CORS(app)
