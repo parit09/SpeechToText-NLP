@@ -2,3 +2,4 @@ Flask
 flask-cors
 speechrecognition
 textblob
+gunicorn
